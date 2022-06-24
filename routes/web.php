@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard.layouts.dashboard');
-});
+
 
 Route::get('table', function () {
     return view('dashboard.layouts.table');
@@ -29,10 +27,12 @@ Route::get('changePassword', function () {
     return view('dashboard.layouts.changePassword');
 })->name('changePassword');
 
-Route::get('login', function () {
-    return view('dashboard.layouts.userLogin');
-})->name('login');
 
-Route::get('userRegister', function () {
-    return view('dashboard.layouts.userRegister');
-})->name('userRegister');
+
+
+Route::get('dashboard', [LoginController::class, 'dashboard'])->name('dashboard');
+Route::get('/', [LoginController::class, 'index'])->name('login');
+Route::post('custom-login', [LoginController::class, 'customLogin'])->name('customlogin');
+Route::get('userRegister', [LoginController::class, 'registration'])->name('userRegister');
+Route::post('user-registration', [LoginController::class, 'customRegistration'])->name('user-registration');
+Route::get('signout', [LoginController::class, 'signOut'])->name('signout');
