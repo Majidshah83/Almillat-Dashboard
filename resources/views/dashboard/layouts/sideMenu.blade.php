@@ -6,7 +6,7 @@
                 <div class="side-nav__devider my-6"></div>
                 <ul>
                     <li>
-                        <a href="{{asset('/')}}" class="side-menu side-menu--active">
+                        <a href="{{route('dashboard')}}" class="side-menu side-menu--active">
                             <div class="side-menu__icon"> <i data-lucide="home"></i> </div>
                             <div class="side-menu__title">
                                 Dashboard
@@ -29,14 +29,50 @@
                                             <div class="side-menu__title">Change Password</div>
                                         </a>
                                     </li>
-
-                                     <li>
-                                        <a href="{{route('table')}}" class="side-menu ">
+                                    <li>
+                                        <a href="{{route('index')}}" class="side-menu ">
                                             <div class="side-menu__icon"> <i data-lucide="zap"></i> </div>
-                                            <div class="side-menu__title">Table</div>
+                                            <div class="side-menu__title">Logo</div>
                                         </a>
+                                    </li>
+                                <li>
+
+                                 @can('permission-list')
+
+                                <a href="{{ route('permissions.index') }}" class="side-menu ">
+                                            <div class="side-menu__icon"> <i data-lucide="zap"></i> </div>
+                                            <div class="side-menu__title">Permission</div>
+                                        </a>
+                                 @endcan
+
+                                    </li>
+
+                                    <li>
+
+                                 @can('user-list')
+
+                                <a href="{{ route('users.index') }}" class="side-menu ">
+                                            <div class="side-menu__icon"> <i data-lucide="zap"></i> </div>
+                                            <div class="side-menu__title">User</div>
+                                        </a>
+                                 @endcan
+
+                                    </li>
+
+                                    <li>
+
+                              @can('role-list')
+                                <a href="{{ route('roles.index') }}" class="side-menu ">
+                                            <div class="side-menu__icon"> <i data-lucide="zap"></i> </div>
+                                            <div class="side-menu__title">Role</div>
+                                        </a>
+                                 @endcan
+
                                     </li>
 
 
+
+
                 </ul>
+                
             </nav>
