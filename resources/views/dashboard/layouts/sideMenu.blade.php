@@ -6,6 +6,7 @@
 	<div class="side-nav__devider my-6"></div>
 	<ul>
 		<li>
+       
 			<a href="{{route('dashboard')}}" class="side-menu side-menu--active">
 				<div class="side-menu__icon"> <i data-lucide="home"></i> </div>
 				<div class="side-menu__title"> Dashboard
@@ -32,7 +33,7 @@
 			</a>
 			<ul class="" style="display: none;">
 				<li>
-					<a href="{{route('updateProfile')}}" class="side-menu">
+					<a href="{{route('get-profile')}}" class="side-menu">
 						<div class="side-menu__icon">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" icon-name="activity" data-lucide="activity" class="lucide lucide-activity">
 								<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>

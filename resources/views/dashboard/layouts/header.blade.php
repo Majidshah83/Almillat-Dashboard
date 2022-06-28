@@ -171,26 +171,34 @@
                     <!-- BEGIN: Account Menu -->
                     <div class="intro-x dropdown w-8 h-8">
                         <div class="dropdown-toggle w-8 h-8 rounded-full overflow-hidden shadow-lg image-fit zoom-in" role="button" aria-expanded="false" data-tw-toggle="dropdown">
-                            <img alt="Midone - HTML Admin Template" src="{{asset('dist/images/profile-5.jpg')}}">
+
+
+                            <img alt="Midone - HTML Admin Template" src="{{'upload/profile/'.Auth::user()->image}}">
                         </div>
                         <div class="dropdown-menu w-56">
                             <ul class="dropdown-content bg-primary text-white">
                                 <li class="p-2">
 
                                     <div class="font-medium">{{ucfirst(Auth::user()->first_name)." ".ucfirst(Auth::user()->last_name)}}</div>
-                                    <div class="text-xs text-white/70 mt-0.5 dark:text-slate-500"> {{ucfirst(Auth::user()->roles->pluck('name')[0])}}</div>
+
+
+
+
+                                    <div class="text-xs text-white/70 mt-0.5 dark:text-slate-500">@if(isset(
+  Auth::user()->roles->pluck('name')[0])){{Auth::user()->roles->pluck('name')[0]}}@endif</div>
+
                                 </li>
                                 <li>
                                     <hr class="dropdown-divider border-white/[0.08]">
                                 </li>
                                 <li>
-                                    <a href="{{route('updateProfile')}}" class="dropdown-item hover:bg-white/5"> <i data-lucide="user" class="w-4 h-4 mr-2"></i> Profile </a>
+                                    <a href="{{route('get-profile')}}" class="dropdown-item hover:bg-white/5"> <i data-lucide="user" class="w-4 h-4 mr-2"></i> Profile </a>
                                 </li>
 
                                 <li>
                                     <a href="{{route('changePassword')}}" class="dropdown-item hover:bg-white/5"> <i data-lucide="lock" class="w-4 h-4 mr-2"></i> Reset Password </a>
                                 </li>
-                               
+
                                 <li>
                                     <hr class="dropdown-divider border-white/[0.08]">
                                 </li>

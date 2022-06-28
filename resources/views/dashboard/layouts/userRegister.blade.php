@@ -37,7 +37,7 @@
                 <!-- END: Register Info -->
                 <!-- BEGIN: Register Form -->
                 <div class="h-screen xl:h-auto flex py-5 xl:py-0 my-10 xl:my-0">
-                    <form action="{{ route('user-registration') }}" method="POST">
+                    <form action="{{ route('user-registration') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="my-auto mx-auto xl:ml-20 bg-white dark:bg-darkmode-600 xl:bg-transparent px-5 sm:px-8 py-8 xl:p-0 rounded-md shadow-md xl:shadow-none w-full sm:w-3/4 lg:w-2/4 xl:w-auto">
                         <h2 class="intro-x font-bold text-2xl xl:text-3xl text-center xl:text-left">
@@ -73,7 +73,10 @@
                                 <span class="text-danger">{{ $errors->first('password_confirmation') }}</span>
                                 @endif
 
-
+                                <input type="file" class="intro-x login__input form-control py-3 px-4 block mt-4" name="image" placeholder="image" style="    border: 1px solid #eee;">
+                                @if ($errors->has('image'))
+                                <span class="text-danger">{{ $errors->first('image') }}</span>
+                                @endif
 
                             <input type="text" class="intro-x login__input form-control py-3 px-4 block mt-4" name="city" placeholder="City">
                                 @if ($errors->has('city'))

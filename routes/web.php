@@ -6,6 +6,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +22,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 
-Route::get('updateProfile', function () {
-    return view('dashboard.layouts.updateProfile');
-})->name('updateProfile');
+
 
 Route::get('changePassword', function () {
     return view('dashboard.layouts.changePassword');
@@ -56,4 +55,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('destroy-logo\{id}',[LogoController::class, 'destroy'])->name('destroy-logo');
     Route::get('edit-logo\{id}',[LogoController::class, 'edit'])->name('edit-logo');
     Route::post('update-logo',[LogoController::class, 'update'])->name('update-logo');
+
+    Route::get('get-profile',[ProfileController::class, 'getprofile'])->name('get-profile');
+    Route::post('update-profile',[ProfileController::class, 'updateProfile'])->name('update-profile');
+
 });

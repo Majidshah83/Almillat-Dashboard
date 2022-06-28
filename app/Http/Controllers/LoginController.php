@@ -47,7 +47,7 @@ class LoginController extends Controller
 
     public function customRegistration(Request $request)
     {
-           
+
         $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
@@ -55,11 +55,12 @@ class LoginController extends Controller
             'password' => 'required|confirmed',
             'city' => 'required',
             'adress' => 'required',
+            'image' => 'required',
             'phone_no' => 'required|min:11|numeric',
             'zipCode' => 'required'
 
         ]);
-
+ 
         $data = new User();
         $data->first_name=$request->first_name;
         $data->last_name=$request->last_name;
@@ -69,6 +70,13 @@ class LoginController extends Controller
         $data->adress=$request->adress;
         $data->phone_no=$request->phone_no;
         $data->zipCode=$request->zipCode;
+        if($request->file('image')) {
+         $file = $request->file('image');
+         $extension = $file->getClientOriginalExtension();
+         $filename=  time().'.'. $extension;
+         $file->move('upload/profile/',$filename);
+         $data->image = $filename;
+     }
         $data->save();
         return redirect()->route('login')->with('message', 'You are Rigster Successfully!');
     }
