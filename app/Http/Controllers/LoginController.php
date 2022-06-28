@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
+use App\Models\Logo;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -12,6 +13,7 @@ class LoginController extends Controller
 
     public function index()
     {
+
         return view('dashboard.layouts.userLogin');
     }
 
@@ -45,12 +47,16 @@ class LoginController extends Controller
 
     public function customRegistration(Request $request)
     {
-
+           
         $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|confirmed',
+            'city' => 'required',
+            'adress' => 'required',
+            'phone_no' => 'required|min:11|numeric',
+            'zipCode' => 'required'
 
         ]);
 
@@ -59,6 +65,10 @@ class LoginController extends Controller
         $data->last_name=$request->last_name;
         $data->email=$request->email;
         $data->password=Hash::make($request->password);
+        $data->city=$request->city;
+        $data->adress=$request->adress;
+        $data->phone_no=$request->phone_no;
+        $data->zipCode=$request->zipCode;
         $data->save();
         return redirect()->route('login')->with('message', 'You are Rigster Successfully!');
     }
@@ -68,7 +78,11 @@ class LoginController extends Controller
 
     public function dashboard()
     {
+        //dd('ok');
         if(Auth::check()){
+
+
+
             return view('dashboard.layouts.dashboard');
         }
 
@@ -81,5 +95,30 @@ class LoginController extends Controller
         Auth::logout();
 
         return Redirect()->route('login');
+    }
+    public function changePasswordPost(Request $request) {
+
+        if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
+            // The passwords matches
+            return redirect()->back()->with("error","Your current password does not matches with the password.");
+        }
+
+        if(strcmp($request->get('current-password'), $request->get('new-password')) == 0){
+            // Current password and new password same
+            return redirect()->back()->with("error","New Password cannot be same as your current password.");
+        }
+
+        $validatedData = $request->validate([
+            'current-password' => 'required',
+            'new-password' => 'required|string|min:6|confirmed',
+        ]);
+
+        //Change Password
+        $user = Auth::user();
+        $user->password = Hash::make($request->get('new-password'));
+
+        $user->save();
+
+        return redirect()->back()->with("success","Password successfully changed!");
     }
 }

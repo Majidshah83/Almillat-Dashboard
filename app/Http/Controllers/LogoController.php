@@ -28,24 +28,47 @@ class LogoController extends Controller
          $logo->image = $filename;
      }
     $logo->save();
-     return redirect()->route('index')
+     return redirect()->route('logo-index')
             ->with('success', 'Logo created successfully.');
 
     }
 
       public function edit($id)
     {
-        $permission =Logo::find($id);
+        $logo =Logo::find($id);
 
-        return view('dashboard.permissions.edit', compact('permission'));
+
+        return view('dashboard.logo.edit',compact('logo'));
     }
+    public function update(Request $request)
+    {
 
+         $logo= Logo::where('id',$request->id)->first();
+         if($request->file('image')) {
+         $file = $request->file('image');
+         $extension = $file->getClientOriginalExtension();
+         $filename=  time().'.'. $extension;
+         $file->move('upload/logo/',$filename);
+         $logo->image = $filename;
+     }
+     $logo->update();
+           return redirect()->route('logo-index')
+            ->with('success', 'Logo updated successfully.');
+
+
+    }
     public function destroy($id)
     {
        $logo=Logo::where('id',$id)->first();
        $logo->delete();
-       return redirect()->route('index')
+       return redirect()->route('logo-index')
             ->with('success', 'Logo deleted successfully.');
+    }
+    public function showLogo()
+    {
+        $logo=Logo::all();
+
+        return view('dashboard.layouts.sideMenu',compact('logo'));
     }
 
 }

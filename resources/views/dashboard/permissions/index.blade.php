@@ -1,5 +1,8 @@
 @extends('dashboard.layouts.master')
+
 @section('content')
+
+
 <div class="container">
     <div class="justify-content-center">
         @if (\Session::has('success'))
@@ -34,11 +37,11 @@
                                     @can('role-edit')
                                         <a class="btn btn-primary" href="{{ route('permissions.edit',$permission->id) }}">Edit</a>
                                     @endcan
-                                    @can('role-delete')
-                                        {!! Form::open(['method' => 'DELETE','route' => ['permissions.destroy', $permission->id],'style'=>'display:inline']) !!}
+
+                                          {!! Form::open(['method' => 'DELETE','route' => ['permissions.destroy', $permission->id],'style'=>'display:inline']) !!}
                                         {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                                         {!! Form::close() !!}
-                                    @endcan
+
                                 </td>
                             </tr>
                         @endforeach

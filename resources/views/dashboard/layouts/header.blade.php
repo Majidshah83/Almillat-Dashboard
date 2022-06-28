@@ -34,7 +34,8 @@
                                         <div class="w-8 h-8 image-fit">
                                             <img alt="Midone - HTML Admin Template" class="rounded-full" src="{{asset('dist/images/profile-7.jpg')}}">
                                         </div>
-                                        <div class="ml-3">Kevin Spacey</div>
+
+                             <div class="ml-3">Kevin Spacey</div>
                                         <div class="ml-auto w-48 truncate text-slate-500 text-xs text-right">kevinspacey@left4code.com</div>
                                     </a>
                                     <a href="" class="flex items-center mt-2">
@@ -175,24 +176,21 @@
                         <div class="dropdown-menu w-56">
                             <ul class="dropdown-content bg-primary text-white">
                                 <li class="p-2">
-                                    <div class="font-medium">Kevin Spacey</div>
-                                    <div class="text-xs text-white/70 mt-0.5 dark:text-slate-500">Software Engineer</div>
+
+                                    <div class="font-medium">{{ucfirst(Auth::user()->first_name)." ".ucfirst(Auth::user()->last_name)}}</div>
+                                    <div class="text-xs text-white/70 mt-0.5 dark:text-slate-500"> {{ucfirst(Auth::user()->roles->pluck('name')[0])}}</div>
                                 </li>
                                 <li>
                                     <hr class="dropdown-divider border-white/[0.08]">
                                 </li>
                                 <li>
-                                    <a href="" class="dropdown-item hover:bg-white/5"> <i data-lucide="user" class="w-4 h-4 mr-2"></i> Profile </a>
+                                    <a href="{{route('updateProfile')}}" class="dropdown-item hover:bg-white/5"> <i data-lucide="user" class="w-4 h-4 mr-2"></i> Profile </a>
                                 </li>
+
                                 <li>
-                                    <a href="" class="dropdown-item hover:bg-white/5"> <i data-lucide="edit" class="w-4 h-4 mr-2"></i> Add Account </a>
+                                    <a href="{{route('changePassword')}}" class="dropdown-item hover:bg-white/5"> <i data-lucide="lock" class="w-4 h-4 mr-2"></i> Reset Password </a>
                                 </li>
-                                <li>
-                                    <a href="" class="dropdown-item hover:bg-white/5"> <i data-lucide="lock" class="w-4 h-4 mr-2"></i> Reset Password </a>
-                                </li>
-                                <li>
-                                    <a href="" class="dropdown-item hover:bg-white/5"> <i data-lucide="help-circle" class="w-4 h-4 mr-2"></i> Help </a>
-                                </li>
+                               
                                 <li>
                                     <hr class="dropdown-divider border-white/[0.08]">
                                 </li>

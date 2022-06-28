@@ -54,25 +54,49 @@
                                 @if ($errors->has('last_name'))
                                 <span class="text-danger">{{ $errors->first('last_name') }}</span>
                                 @endif
+
+
                             <input type="text" class="intro-x login__input form-control py-3 px-4 block mt-4" name="email" placeholder="Email">
                                 @if ($errors->has('email'))
                                 <span class="text-danger">{{ $errors->first('email') }}</span>
                                 @endif
-                            <input type="password" class="intro-x login__input form-control py-3 px-4 block mt-4" name="password" placeholder="Password">
+
+                              <input type="password" class="intro-x login__input form-control py-3 px-4 block mt-4" name="password" placeholder="Password">
                                @if ($errors->has('password'))
                                 <span class="text-danger">{{ $errors->first('password') }}</span>
                                 @endif
-                            <div class="intro-x w-full grid grid-cols-12 gap-4 h-1 mt-3">
-                                <div class="col-span-3 h-full rounded bg-success"></div>
-                                <div class="col-span-3 h-full rounded bg-success"></div>
-                                <div class="col-span-3 h-full rounded bg-success"></div>
-                                <div class="col-span-3 h-full rounded bg-slate-100 dark:bg-darkmode-800"></div>
-                            </div>
+
+
                             <a href="" class="intro-x text-slate-500 block mt-2 text-xs sm:text-sm">What is a secure password?</a>
                             <input type="password" class="intro-x login__input form-control py-3 px-4 block mt-4" name="password_confirmation" placeholder="Password Confirmation">
                                 @if ($errors->has('password_confirmation'))
                                 <span class="text-danger">{{ $errors->first('password_confirmation') }}</span>
                                 @endif
+
+
+
+                            <input type="text" class="intro-x login__input form-control py-3 px-4 block mt-4" name="city" placeholder="City">
+                                @if ($errors->has('city'))
+                                <span class="text-danger">{{ $errors->first('city') }}</span>
+                                @endif
+                             <input type="text" class="intro-x login__input form-control py-3 px-4 block mt-4" name="adress" placeholder="Adress">
+                                @if ($errors->has('adress'))
+                                <span class="text-danger">{{ $errors->first('adress') }}</span>
+                                @endif
+                             <input type="number" class="intro-x login__input form-control py-3 px-4 block mt-4" name="phone_no" placeholder="Phone Number">
+                                @if ($errors->has('phone_no'))
+                                <span class="text-danger">{{ $errors->first('phone_no') }}</span>
+                                @endif
+
+
+                                 <input type="number" class="intro-x login__input form-control py-3 px-4 block mt-4" name="zipCode" placeholder="ZipCode">
+                               @if ($errors->has('zipCode'))
+                                <span class="text-danger">{{ $errors->first('zipCode') }}</span>
+                                @endif
+
+
+
+
 
                         </div>
                         <div class="intro-x flex items-center text-slate-600 dark:text-slate-500 mt-4 text-xs sm:text-sm">
@@ -97,3 +121,8 @@
         <!-- END: JS Assets-->
     </body>
 </html>
+<style>
+    html,body{
+overflow:auto;
+}
+</style>

@@ -118,6 +118,7 @@ class PermissionController extends Controller
      */
     public function destroy($id)
     {
+      
         Permission::find($id)->delete();
 
         return redirect()->route('permissions.index')
