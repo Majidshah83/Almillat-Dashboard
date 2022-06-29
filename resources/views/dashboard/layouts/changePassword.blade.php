@@ -1,4 +1,7 @@
 @extends('dashboard.layouts.master')
+@section('title',$meta_title)
+@section('description',$meta_description)
+@section('keywords',$meta_keywords)
 @section('content')
 <div class="container">
     <div class="row">

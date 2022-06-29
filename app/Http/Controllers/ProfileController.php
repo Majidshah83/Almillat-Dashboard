@@ -6,13 +6,29 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Logo;
 use Illuminate\Support\Facades\Auth;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\TwitterCard;
+use Artesaos\SEOTools\Facades\JsonLd;
+// OR with multi
+use Artesaos\SEOTools\Facades\JsonLdMulti;
+
+// OR use only single facades
+use Artesaos\SEOTools\Facades\SEOTools;
+
+
 class ProfileController extends Controller
 {
       public function getprofile()
       {
 
         $user=Auth::User();
-        return view('dashboard.layouts.updateProfile',compact('user'));
+        //Seo title
+        //seo tags
+        $meta_title='Update Profile';
+        $meta_description='Amilat User Update Profile';
+        $meta_keywords='Profile,Amilat Profile,Profile Image ,Profile Detail';
+        return view('dashboard.layouts.updateProfile',compact('user','meta_title','meta_description','meta_keywords'));
       }
       public function updateProfile(Request $request)
       {
@@ -27,7 +43,7 @@ class ProfileController extends Controller
        }else{
          $filename=$profile->image;
        }
-        
+
 
         $profile->first_name=$request->first_name;
         $profile->last_name=$request->last_name;

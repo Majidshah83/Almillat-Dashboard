@@ -1,4 +1,7 @@
 @extends('dashboard.layouts.master')
+@section('title',$logo->meta_title)
+@section('description',$logo->meta_description)
+@section('keywords',$logo->meta_keywords)
 @section('content')
 <form action="{{route('update-logo')}}" method="POST" enctype="multipart/form-data">
     @csrf

@@ -14,6 +14,7 @@ class LoginController extends Controller
     public function index()
     {
 
+
         return view('dashboard.layouts.userLogin');
     }
 
@@ -60,7 +61,7 @@ class LoginController extends Controller
             'zipCode' => 'required'
 
         ]);
- 
+
         $data = new User();
         $data->first_name=$request->first_name;
         $data->last_name=$request->last_name;
@@ -86,12 +87,13 @@ class LoginController extends Controller
 
     public function dashboard()
     {
-        //dd('ok');
+
         if(Auth::check()){
-
-
-
-            return view('dashboard.layouts.dashboard');
+          //seo tags
+        $meta_title='Dashboard';
+        $meta_description='Amilat dashboard';
+        $meta_keywords='Amilat Quran Dashboard,Amilat dashboard,Dashboard detail,Amilat dashboard ,Islamic Dashboard';
+            return view('dashboard.layouts.dashboard',compact('meta_title','meta_description','meta_keywords'));
         }
 
         return redirect("login")->withSuccess('You are not allowed to access');
@@ -128,5 +130,13 @@ class LoginController extends Controller
         $user->save();
 
         return redirect()->back()->with("success","Password successfully changed!");
+    }
+    public function changePassword()
+    {
+        //seo tags
+        $meta_title='Change Password';
+        $meta_description='Amilat User Change Password';
+        $meta_keywords='Password,Amilat Password,Change Password,Change User Password';
+        return view('dashboard.layouts.changePassword',compact('meta_title','meta_description','meta_keywords'));
     }
 }

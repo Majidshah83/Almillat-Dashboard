@@ -1,5 +1,7 @@
  @extends('dashboard.layouts.master')
-@section('title', 'Dashboard')
+@section('title',$meta_title)
+@section('description',$meta_description)
+@section('keywords',$meta_keywords)
 @section('content')
  <div class="grid grid-cols-12 gap-6">
                     <div class="col-span-12 2xl:col-span-9">

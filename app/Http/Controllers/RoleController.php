@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\TwitterCard;
+use Artesaos\SEOTools\Facades\JsonLd;
+// OR with multi
+use Artesaos\SEOTools\Facades\JsonLdMulti;
+
 class RoleController extends Controller
 {
     /**
@@ -30,6 +37,7 @@ class RoleController extends Controller
      */
     public function index(Request $request)
     {
+       
         $data = Role::orderBy('id','ASC')->paginate(8);
 
         return view('dashboard.roles.index', compact('data'));
@@ -114,7 +122,8 @@ class RoleController extends Controller
             'name' => 'required',
             'permission' => 'required',
         ]);
-
+        //seo title
+        SEOMeta::setTitle('Permission');
         $role = Role::find($id);
         $role->name = $request->input('name');
         $role->save();

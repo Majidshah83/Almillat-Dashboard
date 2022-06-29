@@ -8,6 +8,12 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Spatie\Permission\Models\Role;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\TwitterCard;
+use Artesaos\SEOTools\Facades\JsonLd;
+// OR with multi
+use Artesaos\SEOTools\Facades\JsonLdMulti;
 
 class UserController extends Controller
 {
@@ -31,6 +37,8 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
+         //seo title
+        SEOMeta::setTitle('User');
         $data = User::orderBy('id', 'ASC')->paginate(8);
 
         return view('dashboard.users.index', compact('data'));

@@ -7,6 +7,12 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\TwitterCard;
+use Artesaos\SEOTools\Facades\JsonLd;
+// OR with multi
+use Artesaos\SEOTools\Facades\JsonLdMulti;
 
 class PermissionController extends Controller
 {
@@ -30,6 +36,8 @@ class PermissionController extends Controller
      */
     public function index(Request $request)
     {
+         //seo title
+        SEOMeta::setTitle('Permission');
         $data = Permission::orderBy('id','ASC')->paginate(8);
 
         return view('dashboard.permissions.index', compact('data'));
@@ -53,6 +61,7 @@ class PermissionController extends Controller
      */
     public function store(Request $request)
     {
+
         $this->validate($request, [
             'name' => 'required|unique:permissions,name',
         ]);
@@ -118,8 +127,9 @@ class PermissionController extends Controller
      */
     public function destroy($id)
     {
-      
-        Permission::find($id)->delete();
+
+
+       Permission::find($id)->delete();
 
         return redirect()->route('permissions.index')
             ->with('success', 'Permission deleted successfully');

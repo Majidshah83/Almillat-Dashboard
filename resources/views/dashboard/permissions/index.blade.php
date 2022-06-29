@@ -1,7 +1,9 @@
 @extends('dashboard.layouts.master')
 
 @section('content')
-
+@section('title')
+  {!! SEOMeta::generate() !!}
+@stop
 
 <div class="container">
     <div class="justify-content-center">

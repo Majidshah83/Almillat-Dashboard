@@ -1,8 +1,9 @@
 
 @extends('dashboard.layouts.master')
-@section('title', 'UpdateProfile')
+@section('title',$meta_title)
+@section('description',$meta_description)
+@section('keywords',$meta_keywords)
 @section('content')
-
  <div class="intro-y flex items-center mt-8">
                     <h2 class="text-lg font-medium mr-auto">
                         Update Profile

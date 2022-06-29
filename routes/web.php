@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 Route::get('changePassword', function () {
+
     return view('dashboard.layouts.changePassword');
 })->name('changePassword');
 
@@ -37,6 +38,7 @@ Route::post('custom-login', [LoginController::class, 'customLogin'])->name('cust
 Route::get('userRegister', [LoginController::class, 'registration'])->name('userRegister');
 Route::post('user-registration', [LoginController::class, 'customRegistration'])->name('user-registration');
 Route::get('signout', [LoginController::class, 'signOut'])->name('signout');
+Route::get('changePassword',[LoginController::class, 'changePassword'])->name('changePassword');
 Route::post('changePasswordPost', [LoginController::class, 'changePasswordPost'])->name('changePasswordPost');
 
 
@@ -48,7 +50,7 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::get('show-logo',[LogoController::class, 'showLogo'])->name('show-logo');
     Route::get('dashboard', [LoginController::class, 'dashboard'])->name('dashboard');
-    Route::get('logo-index',[LogoController::class, 'show'])->name('logo-index');
+    Route::get('logo-index',[LogoController::class, 'index'])->name('logo-index');
     Route::get('create-logo',[LogoController::class, 'create'])->name('create-logo');
     Route::post('store-image',[LogoController::class, 'store'])->name('store-image');
 

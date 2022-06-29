@@ -1,4 +1,7 @@
 @extends('dashboard.layouts.master')
+@section('title')
+  {!! SEOMeta::generate() !!}
+@stopp
 @section('content')
 <div class="container">
     <div class="justify-content-center">
@@ -35,7 +38,7 @@
                                     @can('role-edit')
                                         <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}">Edit</a>
                                     @endcan
-                                 
+
                                        {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
                                         {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                                         {!! Form::close() !!}

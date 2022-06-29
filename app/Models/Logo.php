@@ -9,7 +9,9 @@ class Logo extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'image',
+        'image','meta_title','meta_description','meta_keywords'
+
+
 
     ];
 
