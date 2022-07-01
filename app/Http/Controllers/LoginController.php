@@ -59,7 +59,6 @@ class LoginController extends Controller
             'image' => 'required',
             'phone_no' => 'required|min:11|numeric',
             'zipCode' => 'required'
-
         ]);
 
         $data = new User();

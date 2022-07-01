@@ -5,7 +5,6 @@
 @section('content')
 <div class="container">
     <div class="row">
-
         <div class="col-md-10 offset-2">
             <div class="panel panel-default">
                 <h2 style="margin-bottom: 20px;">Change password</h2>

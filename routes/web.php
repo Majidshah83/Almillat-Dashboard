@@ -7,7 +7,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,5 +62,15 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::get('get-profile',[ProfileController::class, 'getprofile'])->name('get-profile');
     Route::post('update-profile',[ProfileController::class, 'updateProfile'])->name('update-profile');
+
+    // seo tags
+    Route::get('tag-index',[TagController::class, 'index'])->name('tag-index');
+    Route::get('create-tag',[TagController::class, 'create'])->name('create-tag');
+    Route::post('store-tag',[TagController::class, 'store'])->name('store-tag');
+    Route::get('tag-edit/{id}',[TagController::class, 'edit'])->name('tag-edit');
+    Route::post('update-tag',[TagController::class, 'update'])->name('update-tag');
+
+    Route::get('tag-delete/{id}',[TagController::class, 'destroy'])->name('tag-delete');
+
 
 });

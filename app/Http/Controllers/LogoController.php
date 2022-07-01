@@ -29,6 +29,9 @@ class LogoController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'image' => 'required',
+        ]);
       $logo= new Logo();
 
     if($request->file('image')) {
@@ -39,9 +42,6 @@ class LogoController extends Controller
          $file->move('upload/logo/',$filename);
          $logo->image = $filename;
      }
-     $logo->meta_title=$request->meta_title;
-     $logo->meta_description=$request->meta_description;
-     $logo->meta_keywords=$request->meta_keywords;
      $logo->save();
      return redirect()->route('logo-index')
             ->with('success', 'Logo created successfully.');
