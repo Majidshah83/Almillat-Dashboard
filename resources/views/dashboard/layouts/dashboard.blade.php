@@ -1,7 +1,18 @@
  @extends('dashboard.layouts.master')
-@section('title',$meta_title)
-@section('description',$meta_description)
-@section('keywords',$meta_keywords)
+@section('title',$seoTag->title)
+@section('description',$seoTag->description)
+@section('keywords',$seoTag->key_words)
+@section('robots',$seoTag->robots)
+@section('twittertitle',$seoTag->twitter_title)
+@section('twitterCard',$seoTag->twitter_card)
+@section('twitterDescription',$seoTag->twitter_description)
+@section('twitter_site',$segtioTag->twitter_site)
+@section('ogsiteTitle',$seoTag->ogsite_title)
+@section('ogsitename',$seoTag->ogsite_name)
+@section('ogsiteDescription:',$seoTag->ogsite_description)
+
+
+
 @section('content')
  <div class="grid grid-cols-12 gap-6">
                     <div class="col-span-12 2xl:col-span-9">

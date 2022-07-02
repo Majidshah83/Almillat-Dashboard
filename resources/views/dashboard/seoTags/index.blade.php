@@ -39,10 +39,10 @@
                 <td>{{$results->key_words}}</td>
 
 
-                            <td>
+                            <td style="display: flex;padding-top: 32px;padding-bottom: 34px;">
 
 
-                                        <a class="btn btn-primary" href="{{ route('tag-edit',$results->id) }}">Edit</a>
+                                        <a class="btn btn-primary" style="margin-right:7px;" href="{{ route('tag-edit',$results->id) }}">Edit</a>
 
                                          <a class="btn btn-danger" href="{{ route('tag-delete',$results->id) }}">Delete</a>
 

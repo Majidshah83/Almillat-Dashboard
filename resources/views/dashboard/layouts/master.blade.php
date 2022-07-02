@@ -10,9 +10,17 @@
 	<title>@yield('title')</title>
 	<meta name="description" content="@yield('description')">
 	<meta name="keywords" content="@yield('keywords')">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 	<link rel="canonical" href="{{url()->current()}}" />
-	<meta name="csrf-token" content="{{ csrf_token() }}" />
-	<!-- end seo tags-->
+    <meta name="robots" content="@yield('robots')"/>
+    <meta name="twitter:title" content="@yield('twittertitle')"/>
+    <meta name="twitter:card" content="@yield('twitterCard')"/>
+    <meta name="twitter:description" content="@yield('twitterDescription')"/>
+    <meta name="twitter:site" content="@yield('twitter_site')"/>
+    <meta name="og:site:title" content="@yield('ogsiteTitle')"/>
+    <meta name="og:site:name" content="@yield('ogsitename')"/>
+    <meta name="og:description:name" content="@yield('ogsiteDescription')"/>
+ 	<!-- end seo tags-->
 	<meta name="author" content="LEFT4CODE">
 	<!-- BEGIN: CSS Assets-->
 	<link rel="stylesheet" href="{{asset('dist/css/app.css')}}" />

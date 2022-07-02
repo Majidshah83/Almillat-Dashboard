@@ -24,7 +24,6 @@ class TagController extends Controller
             'title' => 'required',
             'key_words' => 'required',
             'robots' => 'required',
-            'canonical' => 'required',
             'twitter_title' => 'required',
             'description' => 'required',
             'twitter_description' => 'required',
@@ -37,6 +36,7 @@ class TagController extends Controller
             'ogsite_description'=>'required',
 
         ]);
+
         Tag::create($request->all());
 
         return redirect()->route('tag-index')
@@ -71,7 +71,23 @@ class TagController extends Controller
 
    public function update(Request $request)
    {
-     
+     $request->validate([
+            'title' => 'required',
+            'key_words' => 'required',
+            'robots' => 'required',
+            'twitter_title' => 'required',
+            'description' => 'required',
+            'twitter_description' => 'required',
+            'twitter_card' => 'required',
+            'twitter_site' => 'required',
+            'ogsite_title' => 'required',
+            'ogsite_name' => 'required',
+            'page_name' => 'required',
+
+            'ogsite_description'=>'required',
+
+        ]);
+
       $result=Tag::where('id',$request->id)->first();
       if($result)
       {
@@ -85,7 +101,7 @@ class TagController extends Controller
         $result->title=$request->title;
         $result->key_words=$request->key_words;
         $result->robots=$request->robots;
-        $result->canonical=$request->canonical;
+
         $result->twitter_title=$request->twitter_title;
         $result->description=$request->description;
         $result->update();

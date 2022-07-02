@@ -27,13 +27,7 @@
        @if ($errors->has('robots'))
      <span class="text-danger">{{ $errors->first('robots') }}</span>
     @endif
-      </br>
-             <label style="margin-top:20px;">Canonical:</label><br>
-      <input type="text" class="form-control" name="canonical" value="{{$result->canonical}}" placeholder="Canonical link" style="width: 81%;margin-bottom:20px">
-       </br>
-       @if ($errors->has('canonical'))
-     <span class="text-danger">{{ $errors->first('canonical') }}</span>
-    @endif
+      
 </br>
              <label  style="margin-top:20px;">Twitter Title:</label><br>
       <input type="text" class="form-control" name="twitter_title" value="{{$result->twitter_title}}" placeholder="Twitter Title" style="width: 81%;margin-bottom:20px">

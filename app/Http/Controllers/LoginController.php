@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use App\Models\Logo;
+use App\Models\Tag;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -89,10 +90,9 @@ class LoginController extends Controller
 
         if(Auth::check()){
           //seo tags
-        $meta_title='Dashboard';
-        $meta_description='Amilat dashboard';
-        $meta_keywords='Amilat Quran Dashboard,Amilat dashboard,Dashboard detail,Amilat dashboard ,Islamic Dashboard';
-            return view('dashboard.layouts.dashboard',compact('meta_title','meta_description','meta_keywords'));
+           $seoTag=Tag::where('page_name','dashboard')->first();
+           
+            return view('dashboard.layouts.dashboard',compact('seoTag'));
         }
 
         return redirect("login")->withSuccess('You are not allowed to access');

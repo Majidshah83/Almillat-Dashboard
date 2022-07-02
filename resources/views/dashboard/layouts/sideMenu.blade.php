@@ -2,8 +2,8 @@
                   <?php
                    $image=\App\Models\logo::all()->pluck('image')->first();
                    ?>
-	<a href="{{route('dashboard')}}" class="intro-x flex items-center pl-5 pt-4"> <img alt="Midone - HTML Admin Template" class="w-6" src="{{'upload/logo/'.$image}}"> <span class="hidden xl:block text-white text-lg ml-3"> Almillat Quran </span> </a>
-	<div class="side-nav__devider my-6"></div>
+	<a href="{{route('dashboard')}}" class="intro-x flex items-center pl-5 pt-4"> <img alt="Midone - HTML Admin Template" class="w-6" src="{{asset('/upload/logo/'.$image)}}"> <span class="hidden xl:block text-white text-lg ml-3"> Almillat Quran </span> </a>
+	<div class="side-nav__devider my-6"></div>}
 	<ul>
 		<li>
 
