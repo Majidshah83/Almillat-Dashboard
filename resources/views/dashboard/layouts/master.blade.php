@@ -3,7 +3,8 @@
 <!-- BEGIN: Head -->
 
 <head>
-	<meta charset="utf-8">
+
+<meta charset="utf-8">
 	<link href="{{asset('dist/images/logo.svg')}}" rel="shortcut icon">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- seo tags-->
@@ -25,6 +26,9 @@
 	<!-- BEGIN: CSS Assets-->
 	<link rel="stylesheet" href="{{asset('dist/css/app.css')}}" />
 	<!-- END: CSS Assets-->
+    {{-- CKEditor CDN --}}
+<script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
+
 </head>
 <!-- END: Head -->
 
@@ -37,10 +41,25 @@
 			<!-- END: Top Bar -->@yield('content') </div>
 		<!-- END: Content -->
 	</div>
+
+</body>
+</html>
 	<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=[" your-google-map-api "]&libraries=places"></script>
+
 	<script src="{{asset('dist/js/app.js')}}"></script>
 	<!-- END: JS Assets-->
+    <script>
+ClassicEditor
+.create( document.querySelector( '#body' ) )
+.catch( error => {
+console.error( error );
+} );
+</script>
+
+
+
 </body>
 
 </html>
+

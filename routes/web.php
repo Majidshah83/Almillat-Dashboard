@@ -8,6 +8,9 @@ use App\Http\Controllers\LogoController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TextnomialController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -69,8 +72,32 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('store-tag',[TagController::class, 'store'])->name('store-tag');
     Route::get('tag-edit/{id}',[TagController::class, 'edit'])->name('tag-edit');
     Route::post('update-tag',[TagController::class, 'update'])->name('update-tag');
-
     Route::get('tag-delete/{id}',[TagController::class, 'destroy'])->name('tag-delete');
 
+
+ //  blogs
+      Route::get('blog-index',[BlogController::class, 'index'])->name('blog-index');
+     Route::post('store-blog',[BlogController::class, 'store'])->name('store-blog');
+     Route::get('blog-create',[BlogController::class, 'create'])->name('blog-create');
+      Route::get('edit-blogo/{id}',[BlogController::class, 'edit'])->name('edit-blogo');
+      Route::post('update-blog',[BlogController::class, 'update'])->name('update-blog');
+      Route::get('destroy-blogo/{id}',[BlogController::class, 'destroy'])->name('destroy-blogo');
+
+
+    //  textnomial
+     Route::get('textnomial-index',[TextnomialController::class, 'index'])->name('textnomial-index');
+     Route::post('store-textnomial',[TextnomialController::class, 'store'])->name('store-textnomial');
+     Route::get('create-textnomial',[TextnomialController::class, 'create'])->name('create-textnomial');
+    Route::get('destroy-textnomial/{id}',[TextnomialController::class, 'destroy'])->name('destroy-textnomial');
+    Route::get('textnomi-list/changeStatus', [TextnomialController::class, 'changeSatatus'])->name('textnomi-list/changeStatus');
+
+    //  Service
+
+ Route::get('service-index',[ServiceController::class, 'index'])->name('service-index');
+     Route::post('store-service',[ServiceController::class, 'store'])->name('store-service');
+     Route::get('create-service',[ServiceController::class, 'create'])->name('create-service');
+      Route::get('edit-service/{id}',[ServiceController::class, 'edit'])->name('edit-service');
+      Route::post('update-service',[ServiceController::class, 'update'])->name('update-service');
+      Route::get('destroy-service/{id}',[ServiceController::class, 'destroy'])->name('destroy-service');
 
 });

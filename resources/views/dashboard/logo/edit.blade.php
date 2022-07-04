@@ -6,7 +6,8 @@
 <form action="{{route('update-logo')}}" method="POST" enctype="multipart/form-data">
     @csrf
   <div class="form-group">
-    <input type="hidden" name='id' value="{{$logo->id}}">
+    <input type="hidden" name="id" value=""
+    
     <label for="exampleInputPassword1"><strong>Image:</strong></label>
 
     <input type="file" class="form-control" id="exampleInputPassword1" name="image" value="{{$logo->image}}" placeholder="Password">

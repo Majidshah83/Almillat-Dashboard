@@ -13,6 +13,7 @@
      <span class="text-danger">{{ $errors->first('image') }}</span>
     @endif
   </div>
+  
   <button  class="btn btn-primary" style="margin-top: 20px;">Submit</button>
 </form>
 

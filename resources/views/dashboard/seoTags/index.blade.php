@@ -14,9 +14,7 @@
         @endif
      <table class="table mt-12">
         <div class="card-header">
-                     <span class="float-right">
-                        <a class="btn btn-primary" href="{{route('create-tag')}}">Create Tags</a>
-                    </span>
+                    
             </div>
          <thead class="table-light">
              <tr>

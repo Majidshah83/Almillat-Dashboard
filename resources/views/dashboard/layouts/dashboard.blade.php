@@ -6,7 +6,7 @@
 @section('twittertitle',$seoTag->twitter_title)
 @section('twitterCard',$seoTag->twitter_card)
 @section('twitterDescription',$seoTag->twitter_description)
-@section('twitter_site',$segtioTag->twitter_site)
+@section('twitter_site',$seoTag->twitter_site)
 @section('ogsiteTitle',$seoTag->ogsite_title)
 @section('ogsitename',$seoTag->ogsite_name)
 @section('ogsiteDescription:',$seoTag->ogsite_description)
