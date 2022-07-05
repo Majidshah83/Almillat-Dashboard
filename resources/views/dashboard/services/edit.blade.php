@@ -15,7 +15,7 @@
 </br>
   <div class="form-group">
     <label for="exampleInputPassword1"><strong> Service Image:</strong></label>
-    <input type="file" class="form-control" id="exampleInputPassword1" name="image" value="{{$service->image}}">
+    <input type="file" class="form-control" id="exampleInputPassword1" name="image" value="{{$service->image}}" style="border: 1px solid #eee; background: #fff;">
     <img src="{{asset('upload/service/'.$service->image)}}" alt="image" style="width: 50px; height:50px">
       @if ($errors->has('image'))
      <span class="text-danger">{{ $errors->first('image') }}</span>
