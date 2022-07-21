@@ -1,5 +1,6 @@
 @extends('dashboard.layouts.master') @section('content')
 <form method="POST" action="{{route('update-blog')}}" enctype="multipart/form-data"> @csrf
+
 	<input type="hidden" name='id' value="{{$blog->id}}">
 	<div class="form-group">
 		<label for="exampleInputPassword1"><strong>Title:</strong></label>
@@ -7,7 +8,7 @@
 	</br>
 	<div class="form-group">
 		<label for="exampleInputPassword1"><strong>Feature Image:</strong></label>
-		<input type="file" class="form-control" id="exampleInputPassword1" name="image" style="border: 1px solid #eee; background: #fff;"> @if ($errors->has('image')) <span class="text-danger">{{ $errors->first('title') }}</span> @endif <img src="{{asset('upload/blog/'.$blog->image)}}" alt="image" style="width: 30px; height:30px"> </div>
+		<input type="file" class="form-control" id="exampleInputPassword1" name="image" style="border: 1px solid #eee; background: #fff;"> @if ($errors->has('image')) <span class="text-danger">{{ $errors->first('title') }}</span> @endif <img src="{{asset('upload/blog/'.$blog->images->image)}}" alt="image" style="width: 30px; height:30px"> </div>
 	</br>
 	<!-- /.form group -->
 	</br>

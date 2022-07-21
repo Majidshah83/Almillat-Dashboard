@@ -16,6 +16,4 @@
 
   <button  class="btn btn-primary" style="margin-top: 20px;">Submit</button>
 </form>
-
-
 @endsection

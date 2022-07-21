@@ -11,6 +11,13 @@
      <span class="text-danger">{{ $errors->first('name') }}</span>
     @endif
   </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1"><strong>Email:</strong></label>
+    <input type="email" class="form-control" id="exampleInputPassword1" placeholder="email" name="email" required>
+      @if ($errors->has('email'))
+     <span class="text-danger">{{ $errors->first('email') }}</span>
+    @endif
+  </div>
 </br>
   <div class="form-group">
     <label for="exampleInputPassword1"><strong>Image:</strong></label>

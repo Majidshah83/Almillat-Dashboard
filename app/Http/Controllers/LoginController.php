@@ -8,7 +8,6 @@ use App\Models\User;
 use App\Models\Logo;
 use App\Models\Tag;
 use Illuminate\Support\Facades\Auth;
-
 class LoginController extends Controller
 {
 
@@ -91,7 +90,7 @@ class LoginController extends Controller
         if(Auth::check()){
           //seo tags
            $seoTag=Tag::where('page_name','dashboard')->first();
-           
+
             return view('dashboard.layouts.dashboard',compact('seoTag'));
         }
 

@@ -11,9 +11,6 @@ class BlogController extends Controller
 
     public function index()
     {
-
-
-
         $blog=Blog::with('images')->get();
 
              return view('dashboard.blog.index',compact('blog'));
@@ -52,12 +49,12 @@ class BlogController extends Controller
      }
      public function create()
      {
-        return view('dashboard.blog.create');
+        $storeImage=Image::all();
+        return view('dashboard.blog.create',compact('storeImage'));
      }
      public function edit($id)
      {
-        $blog=Blog::find($id);
-
+        $blog=Blog::with('images')->where('id',$id)->first();
         return view('dashboard.blog.edit',compact('blog'));
      }
 
@@ -72,25 +69,33 @@ class BlogController extends Controller
     {
 
          $blog=Blog::where('id',$request->id)->first();
+
+
          if($request->file('image')) {
+
          $file = $request->file('image');
          $extension = $file->getClientOriginalExtension();
          $filename=  time().'.'. $extension;
          $file->move('upload/blog/',$filename);
 
        }else{
-         $filename=$blog->image;
+         $filename=$blog->images->image;
        }
 
 
     $blog->title=$request->title;
     $blog->content=$request->content;
     $blog->tag=$request->tag;
-    $blog->image=$filename;
+    $blog->images->image=$filename;
+    $blog->update();
+     $blog->images->update();
 
-        $blog->update();
          return redirect()->route('blog-index')
             ->with('success', 'Blog updated successfully.');
     }
+public function addMedia(){
+    $storeImage=Image::all();
+    return view('dashboard.layouts.addMedia',compact('storeImage'));
+}
 
 }

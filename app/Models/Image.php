@@ -12,8 +12,8 @@ class Image extends Model
         'image',
 
     ];
-    public function blog()
-    {
-       return   $this->hasOne(Blog::class,'image_id','id');
-    }
+    // public function blog()
+    // {
+    //    return   $this->hasOne(Blog::class,'image_id','id');
+    // }
 }

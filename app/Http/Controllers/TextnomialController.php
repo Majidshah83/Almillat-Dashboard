@@ -18,7 +18,6 @@ class TextnomialController extends Controller
      }
      public function store(Request $request)
      {
-
          $result= new Textnomial();
       if($request->file('image')) {
 
@@ -30,6 +29,7 @@ class TextnomialController extends Controller
          $result->image = $filename;
      }
       $result->name=$request->name;
+      $result->email=$request->email;
       $result->message=$request->message;
       $result->save();
       return redirect()->route('textnomial-index')

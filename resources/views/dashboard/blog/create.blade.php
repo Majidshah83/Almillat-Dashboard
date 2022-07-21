@@ -5,10 +5,14 @@
 		<input type="text" class="form-control" id="exampleInputPassword1" name="title" placeholder="Title" required> @if ($errors->has('title')) <span class="text-danger">{{ $errors->first('title') }}</span> @endif </div>
 	</br>
 	<div class="form-group">
-		<label for="exampleInputPassword1"><strong>Feature Image:</strong></label>
-		<input type="file" class="form-control" id="exampleInputPassword1" name="image" required style="border: 1px solid #eee; background: #fff;">
+		<label for="filetext"><strong>Feature Image:</strong></label>
+		<input type="button" title="choose image"  class="form-control" id="filetext" name="image" required style="border: 1px solid #eee; background: #fff;">
          @if ($errors->has('image')) <span class="text-danger">{{ $errors->first('title') }}</span> @endif </div>
 	</br>
+    <div class="image">
+    <p>lor15    ahmwah dejwa</p>
+    </div>
+
 	<!-- /.form group -->
 	<div class="form-group">
 		<label><strong>Description:</strong> </label>
@@ -19,8 +23,9 @@
         <input type="text" data-role="tagsinput" name="tag" class="form-control tags">
         @if ($errors->has('tag')) <span class="text-danger">{{ $errors->first('tag') }}</span> @endif </div>
 	<button class="btn btn-primary" style="margin-top: 20px;">Submit</button>
-    
+
 </form>
+
 <style>
 .bootstrap-tagsinput .tag {
 	color: #000 !important;
@@ -32,4 +37,28 @@
 .bootstrap-tagsinput{
 width: 100% !important;
 }
-</style> @endsection
+
+</style>
+<script type="text/javascript">
+    document.getElementById("filetext").onclick = function () {
+
+         if(!$('.image').attr('style')){
+
+   $('.image').attr('style','display:none')
+
+
+
+
+         }
+         else{
+              $('.image').removeAttr('style','display:none')
+
+
+         }
+    };
+
+
+
+</script>
+
+@endsection

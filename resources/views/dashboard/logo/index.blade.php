@@ -23,10 +23,12 @@
              </tr>
          </thead>
          <tbody>
+          
 @foreach($logo as $logo)
+
              <tr>
                 <td>{{$logo->id}}</td>
-                <td><img src="{{'upload/logo/'.$logo->images }}" width="80" height="90">
+                <td><img src="{{'upload/logo/'.$logo->image }}" width="80" height="90">
 </td>
                             <td>
 

@@ -11,6 +11,8 @@ use App\Http\Controllers\TagController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TextnomialController;
+use App\Http\Controllers\EventController;
+
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -99,5 +101,19 @@ Route::group(['middleware' => ['auth']], function() {
       Route::get('edit-service/{id}',[ServiceController::class, 'edit'])->name('edit-service');
       Route::post('update-service',[ServiceController::class, 'update'])->name('update-service');
       Route::get('destroy-service/{id}',[ServiceController::class, 'destroy'])->name('destroy-service');
+
+
+
+    //  Service
+    Route::get('addMedia',[BlogController::class, 'addMedia'])->name('addMedia');
+
+
+    //events
+    Route::get('event_index',[EventController::class, 'index'])->name('event_index');
+    Route::get('event-create',[EventController::class, 'create'])->name('event-create');
+    Route::post('store-event',[EventController::class, 'store'])->name('store-event');
+    Route::get('destroy-event/{id}',[EventController::class, 'destroy'])->name('destroy-event');
+
+
 
 });
